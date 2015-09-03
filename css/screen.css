@@ -426,6 +426,9 @@ section > header h2, .module h2 {
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg); }
 
+  .date {
+    font-size: 2.4rem; }
+
   .tardis {
     max-width: 300px; } }
 

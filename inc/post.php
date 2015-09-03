@@ -12,7 +12,7 @@ function writePosts($ext, $postsPerPage) {
 			$lines = file( $post, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES | FILE_TEXT ); 
 			$output = '';
 			$output .= '<section class="col-2-3 center">';
-			$output .= '<header><h2>';
+			$output .= '<header><h2 class="date">';
 			$output .= $lines[0];
 			$output .= '</h2></header>';
 			$output .= '<article>';
