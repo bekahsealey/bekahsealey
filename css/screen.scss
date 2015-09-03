@@ -1,0 +1,303 @@
+@import 'meyer';
+@import 'fonts';
+@import 'box';
+
+$font: "aaarghnormal", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+$hero: "chivoblack", "arial black", sans-serif;
+$heading: "afta_sansregular", "arial black", sans-serif;
+$margin: 10px;
+$pad: 20px;
+$center: 0 auto;
+$blue: #dce8ea;
+$silver: #A1A1A1;
+$charcoal: #3E3E3E;
+$mustard: #D0CD22;
+$link: $mustard;
+$hover: $blue;
+$active: $silver;
+$border: 2px solid $silver;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin border-gradient($top, $cstop, $bottom) {
+    -webkit-border-image: 
+      -webkit-gradient(linear, 0 0, $cstop 100%, from($top), to($bottom)) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient($top $cstop, $bottom) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient($top $cstop, $bottom) 1 100%;    
+    -o-border-image:
+      -o-linear-gradient($top $cstop, $bottom) 1 100%;
+    border-image:
+      linear-gradient(to bottom, $top $cstop, $bottom) 1 100%;
+}
+@mixin linearGradient($top, $bottom){
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+@mixin radialGradient($top, $bstop, $bottom, $estop){
+	background: -moz-radial-gradient(center, ellipse cover,  $top $bstop, $bottom $estop); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($bstop,$top), color-stop($estop,$bottom)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  $top $bstop,$bottom $estop); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  $top $bstop,$bottom $estop); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  $top $bstop,$bottom $estop); /* IE10+ */
+	background: radial-gradient(ellipse at center,  $top $bstop,$bottom $estop); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+@mixin blurRadius{
+background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,0) 0%, rgba(255,255,255,0) 62%, rgba(255,255,255,1) 68%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0)), color-stop(62%,rgba(255,255,255,0)), color-stop(68%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 62%,rgba(255,255,255,1) 68%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 62%,rgba(255,255,255,1) 68%,rgba(255,255,255,1) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 62%,rgba(255,255,255,1) 68%,rgba(255,255,255,1) 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 62%,rgba(255,255,255,1) 68%,rgba(255,255,255,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: $font;
+	font-size: 2.0rem;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: $heading;
+	margin: .4em 0;
+	color: $charcoal;
+}
+h1 {
+	font-size: 3.2rem;
+}
+h2 {
+	font-size: 2.8rem;
+}
+h3 {
+	font-size: 2.2rem;
+}
+h4 {
+	font-size: 2.0rem;
+}
+h5 {
+	font-size: 1.8rem;
+}
+.hero {
+	font-family: $hero;
+	font-size: 5rem;
+}
+small {
+	font-size: 1.2rem;
+}
+p {
+	margin: $margin*5 0;
+  	line-height: 1.6;
+    letter-spacing: -0.01em;
+}
+b, strong {
+	font-weight: 800;
+}
+ul {
+	margin: $margin $margin*4;
+}
+li {
+	line-height: 1.6;
+}
+a {
+	text-decoration: none;
+	color: $link;
+}
+a[class|=icon], .hero a {
+	color: $charcoal;
+}
+a:hover {
+	color: $hover;
+}
+a:active {
+	color: $active;
+}
+a[class|=icon] span {
+	position: absolute;
+	left: -3000em;
+}
+a .hero {
+	overflow: hidden;
+	width: 180px;
+	height: 216px;
+	position: relative;
+}
+.hero img {
+	width: 185px;
+	height: auto;
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+	margin: auto;
+	-webkit-filter: grayscale(90%);
+	filter: grayscale(90%);
+	border-radius: 50%/50%;
+	box-shadow: 0 0 4px 2px #ffffff;
+}
+a .hero:after {
+	position: absolute;
+	content: "";
+	@include blurRadius;
+	border: 2px #ffffff solid;
+	top:-2px;bottom:-2px;left:-2px;right:-2px;
+}
+a .hero h1 {
+	text-indent: -3000em;
+}
+.wrapper {
+	width: 100%;
+	max-width: 960px;
+	margin: $center;
+	margin-bottom: $margin*3;
+}
+.wrapper>header {
+	position: relative;
+	margin-bottom: $margin*2;
+	padding: $pad/2 0;
+	position: relative;
+	overflow: visible;
+	display: block;
+}
+main {
+	width: 100%;
+	margin: $center;
+	position: relative;
+}
+section, article, .module {
+	margin: $margin*4 0;
+}
+section>header h2, .module h2 {
+	background: $blue;
+	padding: $pad/4;
+}
+.tardis {
+	width: 100%;
+	margin: $center;
+	display: block;
+}
+@media (min-width: 0) and (max-width: 767px) {  	
+	.wrapper {
+		width: 98%;
+	}
+	nav a {
+		display: block;
+		padding: $pad/4 $pad;
+		@include border-radius(2px);
+	}
+	nav a:hover {
+		background: darken($blue, 35%);
+	}
+	.social-nav li {
+		float: left;
+	}
+}
+@media (min-width: 768px) {
+	@import 'grid';
+	a .hero {
+		position: absolute;
+		left: 5%;
+		top: 5%;
+	}
+	.hero+div {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		height: 68px;
+	}
+	.wrapper>header {
+		border-bottom: 2px $mustard solid;
+		margin-bottom: $margin*10;
+	}
+	.wrapper>header:after {
+		position: absolute;
+		content: "";
+		border-bottom: $blue 6px solid;
+		top:0;bottom:0;right:0;left:0;
+		z-index: -1;
+	}
+    .resume {
+      	font-size: 1.6rem;
+    }
+    .resume p {
+		margin: $margin 0;
+	}
+	.resume main {
+		padding-left: $pad*2.5;
+	}
+	.resume .wrapper>header {
+		position: relative;
+		margin-bottom: $margin;
+		padding: 0;
+		border-bottom: none;
+	}
+	.resume .wrapper>header:after {
+		border-bottom: none;
+	}
+	.horiz {
+		ul {
+			float: right;
+		}
+		li {
+			display: inline-block;
+		}
+		a {
+			display: block;
+			padding: $pad/4 $pad/2;
+		}
+	}
+	section, article {
+		margin: 0;
+	}
+	section, .module {
+		border-left: $mustard dotted 2px;
+		border-width: 6px;
+		-moz-border-image: url(images/dot.png) 0 0 0 35 repeat;
+		-webkit-border-image: url(images/dot.png) 0 0 0 35 repeat;
+		-o-border-image: url(images/dot.png) 0 0 0 35 repeat;
+		border-image: url(images/dot.png) 0 0 0 35 repeat;
+		margin-top: $margin;
+		position: relative;
+	}
+    section:after, .module:after {
+      	position: absolute;
+      	content: "";
+      	border-style: solid;
+      	border-width: 8px;
+		width: 8px;
+      	@include border-gradient(rgba(255,255,255,0.01), 40%, white);
+      	left:-8px;top: 0; bottom: 0;
+    }
+	.module {
+		float: left;
+		width: 100%;
+	}
+	article {
+		padding: $pad/2;
+    	text-align: justify;
+	}
+	header h2 {
+		position: absolute;
+		top: 50px;
+		left: -102px;
+		width: 150px;
+		text-align: right;
+		-webkit-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+	.tardis {
+		max-width: 300px;
+	}
+}

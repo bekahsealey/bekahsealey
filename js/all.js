@@ -1,0 +1,1 @@
+console.log("Thank you for stopping by to take a look at my resume. I am eager to use the skills I've developed to help you and your business. I am an innovative thinker who enjoys solving business problems with efficient and practical solutions. I love learning new techniques and challenging myself. I am always pushing the bounds of my knowledge so I can offer excellence.");

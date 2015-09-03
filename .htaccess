@@ -1,0 +1,7 @@
+#Do not allow users to browse directories without index files
+Options -indexes
+
+#Capture 404s and send to new location
+ErrorDocument 401 /_error/error.php
+ErrorDocument 403 /_error/error.php
+ErrorDocument 404 /_error/error.php

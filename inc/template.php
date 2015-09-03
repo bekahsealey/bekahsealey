@@ -1,0 +1,4 @@
+(Category)
+(Title)
+(Date)
+(paragraph)
