@@ -36,7 +36,7 @@
 			$output .= '</section>'; 
 			echo $output;
 		} ?>
-		<div id="disqus_thread"></div>
+		<div id="disqus_thread" class="col-2-3 center"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'bekahsealey';
