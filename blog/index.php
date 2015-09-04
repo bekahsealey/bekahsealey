@@ -1,6 +1,5 @@
 <?php include('../inc/header.php'); ?>
 <?php include('../inc/post.php'); ?>
-<?php writePosts( 'txt', 5 ); ?>
 	<section class="col-2-3 center">
 		<header><h2>Welcome!</h2></header>
 		<article>
@@ -8,4 +7,5 @@
 			<p>There is always something new to discover in the web development world. I collect information, resources, solutions to problems I've run into and other interesting things. There's no better person to share them with, than you!</p>
 		</article>
 	</section>
+<?php writePosts( 'txt', 5 ); ?>
 <?php include('../inc/footer.php'); ?>
