@@ -14,7 +14,7 @@
     exit();
 }
 		$lines = file( $file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES | FILE_TEXT ); 
-	
+		$link = $_GET['post'];
 			$output = '';
 			$output .= '<section class="col-2-3 center">';
 			$output .= '<header><h2 class="date">';
@@ -24,7 +24,7 @@
 			$output .= "<header><h3><a href=\"single.php?post={$link}\">";
 			$output .= $lines[1];
 			$output .= '</a></h3><header>';
-			$output .= "<small><a href=\"single.php?post={$link}#disqus_thread\">Comments</a></small>";
+			$output .= "<small><a href=\"#disqus_thread\">Comments</a></small>";
 			$n = 2;
 			while ( $n <= count( $lines ) ) {
 				$output .= '<p>';
