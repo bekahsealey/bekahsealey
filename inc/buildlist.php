@@ -22,12 +22,13 @@ function buildFileList($dir, $extensions) {
 }
 
 function blogsort($a, $b) {
+	if ( strtotime($a) ) {
 		$a = strtotime($a);
 		$b = strtotime($b);
-	
-		if ($a == $b) {
-        return 0;
-    }
-    return ($a < $b) ? 1 : -1;
 	}
+	if ($a == $b) {
+		return 0;
+	}
+	return ($a < $b) ? 1 : -1;
+}
 ?>

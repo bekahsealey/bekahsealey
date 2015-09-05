@@ -7,5 +7,5 @@
 			<p>There is always something new to discover in the web development world. I collect information, resources, solutions to problems I've run into and other interesting things. There's no better person to share them with, than you!</p>
 		</article>
 	</section>
-<?php writePosts( 'txt', 5 ); ?>
+<?php writePosts( 'txt', 5, true ); ?>
 <?php include('../inc/footer.php'); ?>

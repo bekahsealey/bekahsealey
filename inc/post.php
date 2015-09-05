@@ -1,6 +1,6 @@
 <?php 
 
-function writePosts($ext, $postsPerPage) {
+function writePosts($ext, $postsPerPage, $comments) {
 	require_once( 'buildlist.php' );
 	$dir = getcwd();
 	
@@ -58,8 +58,10 @@ function writePosts($ext, $postsPerPage) {
 			$output .= '<article>';
 			$output .= "<header><h3><a href=\"single.php?post={$link}\">";
 			$output .= $lines[1];
-			$output .= '</a></h3><header>';
-			$output .= "<small><a href=\"single.php?post={$link}#disqus_thread\">Comments</a></small>";
+			if ( $comments ) {
+				$output .= '</a></h3><header>';
+				$output .= "<small><a href=\"single.php?post={$link}#disqus_thread\">Comments</a></small>";
+			}
 			$n = 2;
 			while ( $n <= count( $lines ) ) {
 				$output .= '<p>';
