@@ -1,5 +1,4 @@
 <?php include('../inc/header.php'); ?>
-<?php include('../inc/post.php'); ?>
 	<section class="col-2-3 center">
 		<header><h2>Welcome!</h2></header>
 		<article>

@@ -5,3 +5,8 @@ Options -indexes
 ErrorDocument 401 /_error/error.php
 ErrorDocument 403 /_error/error.php
 ErrorDocument 404 /_error/error.php
+
+RewriteEngine on 
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?bekahsealey [NC] 
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?bekahsealey.*$ [NC] 
+RewriteRule \.(gif|jpg|js|txt)$ /_error/error.php [L]
