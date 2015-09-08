@@ -1,7 +1,8 @@
 <?php 
+require_once( 'buildlist.php' );
 
-function writePosts($ext, $postsPerPage, $comments) {
-	require_once( 'buildlist.php' );
+function writePosts($ext, $postsPerPage, $paginate, $comments) {
+	
 	$dir = getcwd();
 	
 	// collect post files
@@ -73,19 +74,23 @@ function writePosts($ext, $postsPerPage, $comments) {
 			$output .= '</section>'; 
 			echo $output;
 		}
-		// forward link
-		if ($ostart + 1 < $numPages) {
-			$next = $ostart + 2;
-			echo "<a href=\"{$_SERVER['SCRIPT_NAME']}?perpage={$numPosts}&page={$next}\">&larr; Older</a>";
-		} else {
-			echo "None Older";
-		}
-		echo " || ";
-		// back link
-		if ($ostart > 0) {
-			echo "<a href=\"{$_SERVER['SCRIPT_NAME']}?perpage={$numPosts}&page={$ostart}\">Newer &rarr;</a>";
-		} else {
-			echo "None Newer";
+		
+	// add links if $paginate is set to true
+		if ($paginate) {
+			// forward link
+			if ($ostart + 1 < $numPages) {
+				$next = $ostart + 2;
+				echo "<a href=\"{$_SERVER['SCRIPT_NAME']}?perpage={$numPosts}&page={$next}\">&larr; Older</a>";
+			} else {
+				echo "None Older";
+			}
+			echo " || ";
+			// back link
+			if ($ostart > 0) {
+				echo "<a href=\"{$_SERVER['SCRIPT_NAME']}?perpage={$numPosts}&page={$ostart}\">Newer &rarr;</a>";
+			} else {
+				echo "None Newer";
+			}
 		}
 
 	} else { $output = "No posts found."; } 
