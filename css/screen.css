@@ -198,7 +198,8 @@ a .hero {
   -webkit-filter: grayscale(90%);
   filter: grayscale(90%);
   border-radius: 50%/50%;
-  box-shadow: 0 0 4px 2px #ffffff; }
+  box-shadow: 0 0 4px 2px #ffffff;
+  transition: all 1.5s; }
 
 a .hero:after {
   position: absolute;
@@ -225,6 +226,10 @@ a .hero:after {
 
 a .hero h1 {
   text-indent: -3000em; }
+
+a:hover .hero img {
+  -webkit-filter: grayscale(30%);
+  filter: grayscale(30%); }
 
 .wrapper {
   width: 100%;
