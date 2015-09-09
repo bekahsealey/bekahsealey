@@ -150,7 +150,7 @@ small {
   font-size: 1.2rem; }
 
 p {
-  margin: 50px 0;
+  margin: 30px 0;
   line-height: 1.6;
   letter-spacing: -0.01em; }
 
@@ -162,6 +162,15 @@ ul {
 
 li {
   line-height: 1.6; }
+
+ul.meta {
+  margin: 10px 20px; }
+
+.meta li {
+  line-height: 1; }
+
+.meta a {
+  margin-right: 5px; }
 
 a {
   text-decoration: none;
@@ -261,6 +270,11 @@ section > header h2, .module h2 {
   width: 100%;
   margin: 0 auto;
   display: block; }
+
+.copy {
+  font-family: "Gill Sans MT", Calibri, sans-serif;
+  font-weight: 200;
+  font-size: 1.4rem; }
 
 @media (min-width: 0) and (max-width: 767px) {
   .wrapper {
@@ -419,7 +433,7 @@ section > header h2, .module h2 {
     width: 100%; }
 
   article {
-    padding: 10px;
+    padding: 0 10px 10px;
     text-align: justify; }
 
   header h2 {

@@ -1,5 +1,6 @@
 
 	</main>
+	<footer><p class="copy">Copyright &copy; 2015 Bekah Sealey</p></footer>
 </div>
 <script src="/js/all.js"></script>
 <script type="text/javascript">
