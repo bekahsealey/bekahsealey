@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title><?php if ($page !== '') { echo ucwords( $page ), ' | '; } ?> Bekah Sealey | Portfolio</title>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,300,400italic,300italic,700%7cSpecial+Elite%7cOverlock:900,900italic' rel='stylesheet' type='text/css'>
 <link href="/css/screen.css" rel="stylesheet" media="screen">
 <link href="/css/print.css" rel="stylesheet" media="print">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,13 +28,20 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : 'white'
+ };
+ </script>
 </head>
 
 <body <?php if ($page != '') { ?>class="<?php echo $page; ?>"<?php } ?>>
 <div class="wrapper">
 <header>
 	<div class="grid">
-		<h1 class="logo col-1-2"><a href="/"><span class="icon icon-logo">&nbsp;</span>Bekah Sealey</a></h1>
+		<div class="col-1-2">
+		<h1 class="logo"><a href="/"><span class="icon icon-logo">&nbsp;</span>Bekah Sealey</a></h1>
+		</div>
 		<?php if ($page === 'resume') { ?>
 		<div class="col-1-2">
 			<h3>511 Frank Avenue, Algoma, WI  54201</h3>
