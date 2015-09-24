@@ -120,39 +120,95 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: "aaarghnormal", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-  font-size: 2.0rem; }
+  font-family: "Josefin Slab", "Gill Sans", "Gill Sans MT", Calibri, serif;
+  font-size: 2.2rem;
+  background: #fdfdff; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "afta_sansregular", "arial black", sans-serif;
+  font-family: "Overlock", Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   margin: .4em 0;
-  color: #3E3E3E; }
+  color: #3E3E3E;
+  font-weight: 900; }
 
 h1 {
-  font-size: 3.2rem; }
+  font-size: 3.4rem; }
 
 h2 {
   font-size: 2.8rem; }
 
 h3 {
-  font-size: 2.2rem; }
+  font-size: 2.8rem; }
 
 h4 {
-  font-size: 2.0rem; }
+  font-size: 2.2rem; }
 
 h5 {
-  font-size: 1.8rem; }
+  font-size: 2.0rem; }
+
+.subheading {
+  font-family: "Special Elite", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif; }
 
 small {
-  font-size: 1.2rem; }
+  font-size: 1.6rem; }
 
 p {
   margin: 30px 0;
-  line-height: 1.6;
-  letter-spacing: -0.01em; }
+  line-height: 1.6; }
+
+img {
+  width: 100%; }
+
+.alignleft {
+  width: 40%;
+  max-width: 300px;
+  height: auto;
+  float: left;
+  padding: 4px 6.66667px 6.66667px 0; }
+
+.alignright {
+  width: 40%;
+  max-width: 300px;
+  height: auto;
+  float: right;
+  padding: 4px 0 10px 10px; }
+
+.aligncenter {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
+  clear: both;
+  display: block; }
+
+figcaption {
+  text-align: center; }
 
 b, strong {
-  font-weight: 800; }
+  font-weight: 700; }
+
+em, i {
+  font-style: italic; }
+
+blockquote {
+  line-height: 1.4;
+  margin-left: 20px;
+  padding: 10px;
+  background: #fafafa; }
+
+pre, code {
+  font-family: Consolas, monaco, monospace;
+  font-size: 1.8rem; }
+
+pre {
+  margin-left: 20px;
+  padding: 10px 20px;
+  border-left: 3px #dce8ea solid;
+  background: whitesmoke;
+  overflow: scroll; }
+
+pre p {
+  margin: 0;
+  line-height: 1.4; }
 
 ul {
   margin: 10px 40px; }
@@ -244,6 +300,134 @@ section > header h2, .module h2 {
   font-weight: 200;
   font-size: 1.4rem; }
 
+.grayscale {
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+  filter: grayscale(1); }
+
+.desaturate {
+  -webkit-filter: grayscale(80%);
+  /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+  filter: grayscale(0.8); }
+
+.term {
+  display: inline-block;
+  margin-right: 10px; }
+
+.term a:after {
+  content: ',';
+  color: #3E3E3E; }
+
+.term a:last-child:after {
+  content: ' '; }
+
+form {
+  width: 98%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: auto; }
+
+form#mini {
+  max-width: 480px; }
+
+form#feedback {
+  max-width: 540px; }
+
+form .reverse + li {
+  clear: both; }
+
+fieldset {
+  border: 2px solid #A1A1A1;
+  padding: 20px;
+  border-radius: 4px; }
+
+legend {
+  font-size: 2rem;
+  padding: 10px; }
+
+form li {
+  overflow: auto;
+  margin-bottom: 10px; }
+
+label {
+  width: 20%;
+  float: left;
+  line-height: 30px;
+  text-align: right;
+  padding-right: 10px; }
+
+label.widelabel {
+  width: 35%; }
+
+input {
+  line-height: 1.2;
+  padding: 3.33333px 5px;
+  font-size: 1.8rem;
+  width: 80%;
+  float: right; }
+
+input.tinybox {
+  width: 2.5rem;
+  float: left; }
+
+textarea {
+  width: 80%;
+  height: 400px;
+  float: right;
+  font-size: 1.8rem;
+  padding: 5px; }
+
+input[type=submit] {
+  width: inherit;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  background: #fceabb;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fceabb), color-stop(50%, #fccd4d), color-stop(51%, #f8b500), color-stop(100%, #fbdf93));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
+  /* W3C */ }
+
+input[type=submit]:hover {
+  background: #f9f2e0;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f9f2e0 0%, #f7db94 50%, #f4d27a 51%, #f9e4ae 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f2e0), color-stop(50%, #f7db94), color-stop(51%, #f4d27a), color-stop(100%, #f9e4ae));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f9f2e0 0%, #f7db94 50%, #f4d27a 51%, #f9e4ae 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f9f2e0 0%, #f7db94 50%, #f4d27a 51%, #f9e4ae 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f9f2e0 0%, #f7db94 50%, #f4d27a 51%, #f9e4ae 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #f9f2e0 0%, #f7db94 50%, #f4d27a 51%, #f9e4ae 100%);
+  /* W3C */ }
+
+input[type=submit]:active {
+  background: #f9d67c;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f9d67c 0%, #f9c43e 50%, #f8b500 51%, #f9d67c 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9d67c), color-stop(50%, #f9c43e), color-stop(51%, #f8b500), color-stop(100%, #f9d67c));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f9d67c 0%, #f9c43e 50%, #f8b500 51%, #f9d67c 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f9d67c 0%, #f9c43e 50%, #f8b500 51%, #f9d67c 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f9d67c 0%, #f9c43e 50%, #f8b500 51%, #f9d67c 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #f9d67c 0%, #f9c43e 50%, #f8b500 51%, #f9d67c 100%);
+  /* W3C */ }
+
 @media (min-width: 0) and (max-width: 767px) {
   .wrapper {
     width: 98%; }
@@ -315,6 +499,9 @@ section > header h2, .module h2 {
   .col-4-5 {
     width: 80%; }
 
+  img {
+    max-width: 500px; }
+
   .wrapper > header {
     border-bottom: 2px #D0CD22 solid;
     margin-bottom: 100px; }
@@ -329,8 +516,20 @@ section > header h2, .module h2 {
     left: 0;
     z-index: -1; }
 
+  header h2 {
+    position: absolute;
+    top: 60px;
+    right: 92%;
+    width: auto;
+    min-width: 150px;
+    max-width: 180px;
+    text-align: right;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    white-space: nowrap; }
+
   .resume {
-    font-size: 1.6rem; }
+    font-size: 1.8rem; }
 
   .resume .logo + div {
     margin-top: 10px; }
@@ -349,6 +548,12 @@ section > header h2, .module h2 {
 
   .resume .wrapper > header:after {
     border-bottom: none; }
+
+  .resume header h2 {
+    position: absolute;
+    top: 50px;
+    left: -102px;
+    width: 150px; }
 
   .horiz ul {
     float: right;
@@ -378,11 +583,11 @@ section > header h2, .module h2 {
     border-style: solid;
     border-width: 8px;
     width: 8px;
-    -webkit-border-image: -webkit-gradient(linear, 0 0, 40% 100%, from(rgba(255, 255, 255, 0.01)), to(white)) 1 100%;
-    -webkit-border-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.01) 40%, white) 1 100%;
-    -moz-border-image: -moz-linear-gradient(rgba(255, 255, 255, 0.01) 40%, white) 1 100%;
-    -o-border-image: -o-linear-gradient(rgba(255, 255, 255, 0.01) 40%, white) 1 100%;
-    border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 40%, white) 1 100%;
+    -webkit-border-image: -webkit-gradient(linear, 0 0, 40% 100%, from(rgba(255, 255, 255, 0.01)), to(#fdfdff)) 1 100%;
+    -webkit-border-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.01) 40%, #fdfdff) 1 100%;
+    -moz-border-image: -moz-linear-gradient(rgba(255, 255, 255, 0.01) 40%, #fdfdff) 1 100%;
+    -o-border-image: -o-linear-gradient(rgba(255, 255, 255, 0.01) 40%, #fdfdff) 1 100%;
+    border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 40%, #fdfdff) 1 100%;
     left: -8px;
     top: 0;
     bottom: 0; }
@@ -394,15 +599,6 @@ section > header h2, .module h2 {
   article {
     padding: 0 10px 10px;
     text-align: justify; }
-
-  header h2 {
-    position: absolute;
-    top: 50px;
-    left: -102px;
-    width: 150px;
-    text-align: right;
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg); }
 
   .date {
     font-size: 2.4rem; }
