@@ -1,4 +1,5 @@
-(Category)
-(Title)
-(Date)
-(paragraph)
+DATE
+TITLE
+[Category(ies)]
+{Tags}
+Paragraphs
