@@ -85,7 +85,7 @@ function writePosts($ext, $postsPerPage, $paginate, $comments) {
 		for ($i = 0; $i < $numPosts && isset($sliced[$i]); $i++ ) { 
 			$lines = file( $sliced[$i] . ".{$ext}", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES | FILE_TEXT ); 
 			$link = $sliced[$i];
-			$comment_link = "single.php?post={$link}#disqus_thread";
+			if ( $comments ) { $comment_link = "single.php?post={$link}#disqus_thread"; }
 			postContent( $lines, $link, $comment_link );
 		}
 		
@@ -127,7 +127,7 @@ function writeSingle( $ext, $comments ) {
 		if ( $error == false ) {
 			$lines = file( $file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES | FILE_TEXT ); 
 			$link = $_GET['post'];
-			$comment_link = "#disqus_thread";
+			if ( $comments ) { $comment_link = "#disqus_thread"; }
 			postContent( $lines, $link, $comment_link );
 			if ( $comments ) { ?>
 					<div id="disqus_thread" class="col-2-3 center"></div>
@@ -161,6 +161,8 @@ function writePage( $file ) {
 }
 
 function postContent( $lines, $link, $comment_link ) {
+	$elems = array('address','article','aside','blockquote','br','button','canvas','caption','col','colgroup','dd','div','dl','dt','embed','fieldset','figcaption','figure','footer','form','h1','h2','h3','h4','h5','h6','header','hr','li','main','nav','noscript','map','object','ol','output','p','pre','progress','section','table','tbody','textarea','tfoot','th','thead','tr','ul','video');
+			
 	$n = 0;
 	$output = '';
 	$output .= '<section class="col-2-3 center">';
@@ -169,17 +171,28 @@ function postContent( $lines, $link, $comment_link ) {
 	$output .= '<article>';
 	$output .= '<header><h3>';
 	$link ? $output .= "<a href=\"single.php?post={$link}\">{$lines[$n]}</a>" : $output .= $lines[$n];
-	$output .= '</h3><header>';
+	$output .= '</h3></header>';
 	$n++;
 	$output .= "<ul class=\"meta\">";
-	if ( strpos ( $lines[$n], '[' ) !== false ) { $cats = str_replace( array( '[', ']' ), '', $lines[$n] ); $cats = explode( ',', $cats); $output .= "<li><small>Categorized: "; foreach( $cats as $cat ) { $output .= "<a href=\"?cat={$cat}\">{$cat}</a>"; } $output .= "</small></li>"; $n++; }
-	if ( strpos ( $lines[$n], '{' ) !== false ) { $tags = str_replace( array( '{', '}' ), '', $lines[$n] ); $tags = explode( ',', $tags); $output .= "<li><small>Tagged: "; foreach( $tags as $tag ) { $output .= "<a href=\"?tag={$tag}\">{$tag}</a>"; } $output .= "</small></li>"; $n++; }
+	if ( $lines[$n][0] == '[' ) { $cats = str_replace( array( '[', ']' ), '', $lines[$n] ); $cats = explode( ',', $cats); $output .= "<li class=\"term\"><small>Categorized: "; foreach( $cats as $cat ) { $output .= "<a href=\"?cat={$cat}\">{$cat}</a>"; } $output .= "</small></li>"; $n++; }
+	if ( $lines[$n][0] == '{' ) { $tags = str_replace( array( '{', '}' ), '', $lines[$n] ); $tags = explode( ',', $tags); $output .= "<li class=\"term\"><small>Tagged: "; foreach( $tags as $tag ) { $output .= "<a href=\"?tag={$tag}\">{$tag}</a>"; } $output .= "</small></li>"; $n++; }
 	if ( $comment_link ) { $output .= "<li><small><a href=\"{$comment_link}\">Comments</a></small></li>"; }
 	$output .= '</ul>';
 	while ( $n <= count( $lines ) ) {
-		$output .= '<p>';
-		$output .= $lines[$n];
-		$output .= '</p>';
+		$wrap = true;
+		// if the line begins with < 
+		if ( $lines[$n][0] == '<' ) {
+			foreach( $elems as $str ) {
+			// check if it is a block level element and print without wrapping
+			$pos = strpos($lines[$n], $str );
+				if( $pos === 1 ) {
+					$wrap = false; 
+					break;
+				} 
+			} 
+		}
+			
+		$wrap ? $output .= "<p>{$lines[$n]}</p>" : $output .= $lines[$n];
 		$n++;
 	}
 	$output .= '</article>';
