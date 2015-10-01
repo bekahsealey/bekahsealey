@@ -87,6 +87,18 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon-logo-both:before {
+  content: "\e607"; }
+
+.icon-logo-both:after {
+  content: "\e608"; }
+
+.icon-logo-beg:before {
+  content: "\e607"; }
+
+.icon-logo-end:before {
+  content: "\e608"; }
+
 .icon-logo:before {
   content: "\e600"; }
 
@@ -232,13 +244,14 @@ a {
   text-decoration: none;
   color: #D0CD22; }
 
-a[class|=icon], .logo a {
+a[class|=icon], .logo a, header a {
   color: #3E3E3E; }
 
-a:hover {
+a:hover, a:hover h2,
+a:focus, a:focus h2 {
   color: #dce8ea; }
 
-a:active {
+a:active, a:active h2 {
   color: #A1A1A1; }
 
 a[class|=icon] span {
@@ -257,12 +270,44 @@ a[class|=icon] span {
 .icon-logo {
   vertical-align: middle; }
 
-.icon-logo:before {
+.logo .icon-logo:before {
   font-size: 8rem; }
+
+.icon-logo-both {
+  font-size: 3rem; }
 
 .resume .icon-logo:before {
   font-size: 5rem;
   vertical-align: top; }
+
+.blog .grid > header .subheading {
+  padding: 40px;
+  margin: 0; }
+
+.blog header .subheading {
+  border-left: #3E3E3E dotted 2px;
+  border-width: 15px;
+  -moz-border-image: url(images/border-star.png) 0 0 0 15 repeat;
+  -webkit-border-image: url(images/border-star.png) 0 0 0 15 repeat;
+  -o-border-image: url(images/border-star.png) 0 0 0 15 repeat;
+  border-image: url(images/border-star.png) 0 0 0 15 repeat; }
+
+.blog header a:hover .subheading,
+.blog header a:focus .subheading {
+  border-left: #3E3E3E dotted 2px;
+  border-width: 15px;
+  -moz-border-image: url(images/border-hover-star.png) 0 0 0 15 repeat;
+  -webkit-border-image: url(images/border-hover-star.png) 0 0 0 15 repeat;
+  -o-border-image: url(images/border-hover-star.png) 0 0 0 15 repeat;
+  border-image: url(images/border-hover-star.png) 0 0 0 15 repeat; }
+
+.blog header a:active .subheading {
+  border-left: #3E3E3E dotted 2px;
+  border-width: 15px;
+  -moz-border-image: url(images/border-active-star.png) 0 0 0 15 repeat;
+  -webkit-border-image: url(images/border-active-star.png) 0 0 0 15 repeat;
+  -o-border-image: url(images/border-active-star.png) 0 0 0 15 repeat;
+  border-image: url(images/border-active-star.png) 0 0 0 15 repeat; }
 
 .wrapper {
   width: 100%;
@@ -516,7 +561,20 @@ input[type=submit]:active {
     left: 0;
     z-index: -1; }
 
-  header h2 {
+  .blog .wrapper > header {
+    margin-bottom: 10px; }
+
+  .blog .grid > header {
+    margin: 60px auto;
+    position: relative;
+    left: -40px; }
+
+  .blog .grid > header .subheading {
+    text-align: left;
+    padding: 36px 60px; }
+
+  section > header h2 {
+    margin: 0;
     position: absolute;
     top: 60px;
     right: 92%;

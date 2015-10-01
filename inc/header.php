@@ -1,6 +1,6 @@
 <?php 
 	ini_set("date.timezone", "America/Chicago"); 
-	$page = str_replace( '/', '', $_SERVER['REQUEST_URI']);
+	$page = basename(getcwd());
 	require_once( 'post.php' );
 ?>
 <!doctype html>

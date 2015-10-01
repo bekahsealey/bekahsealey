@@ -40,6 +40,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon-logo-both:before {
+  content: "\e607"; }
+
+.icon-logo-both:after {
+  content: "\e608"; }
+
+.icon-logo-beg:before {
+  content: "\e607"; }
+
+.icon-logo-end:before {
+  content: "\e608"; }
+
 .icon-logo:before {
   content: "\e600"; }
 
