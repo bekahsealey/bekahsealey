@@ -6,7 +6,11 @@ ErrorDocument 401 /_error/error.php
 ErrorDocument 403 /_error/error.php
 ErrorDocument 404 /_error/error.php
 
+# send all .rss files with application/atom+xml
+AddType application/atom+xml .rss
+
 RewriteEngine on 
 RewriteCond %{HTTP_REFERER} !^http://(www\.)?bekahsealey [NC] 
 RewriteCond %{HTTP_REFERER} !^http://(www\.)?bekahsealey.*$ [NC] 
 RewriteRule \.(gif|jpg|js|txt)$ /_error/error.php [L]
+

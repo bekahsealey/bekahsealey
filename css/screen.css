@@ -223,13 +223,15 @@ pre p {
   line-height: 1.4; }
 
 ul {
-  margin: 10px 40px; }
+  margin: 10px 40px;
+  list-style: disc; }
 
 li {
   line-height: 1.6; }
 
-ul.meta {
-  margin: 10px 20px; }
+ul.meta, .skill ul, .attribute ul {
+  margin: 10px 20px;
+  list-style: none; }
 
 .meta li {
   line-height: 1; }
@@ -473,6 +475,13 @@ input[type=submit]:active {
   background: linear-gradient(to bottom, #f9d67c 0%, #f9c43e 50%, #f8b500 51%, #f9d67c 100%);
   /* W3C */ }
 
+.resume main {
+  display: flex;
+  flex-direction: column; }
+.resume aside {
+  display: flex;
+  flex-direction: column; }
+
 @media (min-width: 0) and (max-width: 767px) {
   .wrapper {
     width: 98%; }
@@ -573,7 +582,7 @@ input[type=submit]:active {
     text-align: left;
     padding: 36px 60px; }
 
-  section > header h2 {
+  section > header h2, .module header h2 {
     margin: 0;
     position: absolute;
     top: 60px;
@@ -588,30 +597,31 @@ input[type=submit]:active {
 
   .resume {
     font-size: 1.8rem; }
-
-  .resume .logo + div {
-    margin-top: 10px; }
-
-  .resume p {
-    margin: 10px 0; }
-
-  .resume main {
-    padding-left: 50px; }
-
-  .resume .wrapper > header {
-    position: relative;
-    margin-bottom: 10px;
-    padding: 0;
-    border-bottom: none; }
-
-  .resume .wrapper > header:after {
-    border-bottom: none; }
-
-  .resume header h2 {
-    position: absolute;
-    top: 50px;
-    left: -102px;
-    width: 150px; }
+    .resume main {
+      width: 66%;
+      max-width: 800px;
+      margin: 0 auto; }
+    .resume aside {
+      flex-direction: row;
+      justify-content: space-between; }
+    .resume .logo + div {
+      margin-top: 10px; }
+    .resume p {
+      margin: 10px 0; }
+    .resume main {
+      padding-left: 50px; }
+    .resume .wrapper > header {
+      position: relative;
+      margin-bottom: 10px;
+      padding: 0;
+      border-bottom: none; }
+    .resume .wrapper > header:after {
+      border-bottom: none; }
+    .resume header h2 {
+      position: absolute;
+      top: 50px;
+      left: -102px;
+      width: 150px; }
 
   .horiz ul {
     float: right;
@@ -649,10 +659,6 @@ input[type=submit]:active {
     left: -8px;
     top: 0;
     bottom: 0; }
-
-  .module {
-    float: left;
-    width: 100%; }
 
   article {
     padding: 0 10px 10px;

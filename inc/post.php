@@ -199,4 +199,99 @@ function postContent( $lines, $link, $comment_link ) {
 	$output .= '</section>'; 
 	echo $output;
 }
+ 
+function writeRss( $title, $link, $description, $copyright, $dir, $ext, $language = 'en-us' )
+  {
+  	// check dir for existence and readability
+	$path = '../' . $dir . '/';
+	$exists = file_exists( $path );
+	$link = urlencode( $link );
+	$success = '';
+	$rssFile = '../feed.rss';
+	
+	if (!$exists) {
+		die( "Directory '{$path}' does not exist!" );
+	} else {
+		$rss = new XMLWriter();
+		$rss->openMemory();
+		$rss->startDocument('1.0', 'UTF-8');
+		
+		$rss->setIndent(4);
+		// declare it as an rss document
+		$rss->startElement('rss');
+		$rss->writeAttribute('version', '2.0');
+		$rss->writeAttribute('xmlns:atom', 'http://www.w3.org/2005/Atom');
+ 
+		$rss->startElement( 'channel' );
+		 
+		$rss->writeElement( 'title', $title );
+		$rss->writeElement( 'description', $description );
+		$rss->writeElement( 'language', $language );
+		$rss->writeElement('link',  urldecode( $link ) );
+		$rss->writeElement('pubDate', date("D, d M Y H:i:s e"));
+		$rss->writeElement( 'copyright', $copyright );
+		
+		// collect post files
+		
+		$results = buildFileList($path, $ext);
+		if ( !$results ) {
+			die( 'Files not found.' );
+		} else { 
+			$results = str_replace( ".{$ext}", '', $results );
+			// sort array function included with buildlist
+			usort($results, 'blogsort');
+			$sliced_array = array_slice($results, 0, 10);
+		
+			for ( $i=0; $i <= count($sliced_array)-1; $i++ ) {
+				$link = $path . $results[$i] . '.txt';
+				//echo $link; exit;
+				$error = '';
+				if( !is_readable( $link ) ) { $error .= "{$link}: file is unreadable or does not exist.\n";
+				} else {
+					$lines = file( $link, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES | FILE_TEXT );
+					$itemlink = str_replace( array( '../', '.txt' ), '', $link );
+					$itemlink = str_replace( '/', '/single.php?post=', $ilink );
+					$itemlink = urlencode('http://bekahsealey.com/' . $ilink);
+					$r = 0;
+					$itempubDate = strtotime( $lines[$r] );
+					$itempubDate = date("D, d M Y H:i:s e", $itempubDate );
+					$r++;
+					$itemtitle = $lines[$r];
+					$r++; 
+					if ( $lines[$r][0] == '[' ){ $r++; }
+					if ( $lines[$r][0] == '{' ){ $r++; }
+					$itemdescription = $lines[$r];
+				
+					$rss->startElement("item");
+					$rss->writeElement('title', $itemtitle );
+					$rss->writeElement('link', 'http://bekahsealey.com/blog/' );
+					$rss->writeElement('description', $itemdescription );
+					$rss->writeElement('guid', $itemlink );
+
+					$rss->writeElement('pubDate', $itempubDate );
+
+					// End Item
+					$rss->endElement();
+
+				}
+			}  
+		}	
+		
+		// End channel
+		$rss->endElement();
+
+		// End rss
+		$rss->endElement();
+
+		$rss->endDocument();
+		$success = file_put_contents( $rssFile, $rss->outputMemory() );
+		
+		$rss->flush(); 
+		if ( $success != false || $success != '' ) { echo "RSS written!"; } else { echo "There was a problem."; }
+		if ( $error != false || $error != '' ) { echo $error; }
+		}
+
+  }
+ 
+  
 ?>

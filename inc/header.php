@@ -11,6 +11,7 @@
 <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,300,400italic,300italic,700%7cSpecial+Elite%7cOverlock:900,900italic' rel='stylesheet' type='text/css'>
 <link href="/css/screen.css" rel="stylesheet" media="screen">
 <link href="/css/print.css" rel="stylesheet" media="print">
+<link rel="alternate" type="application/rss+xml" href="http://bekahsealey.com/feed.rss" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script
